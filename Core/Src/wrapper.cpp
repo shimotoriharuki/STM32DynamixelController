@@ -7,7 +7,7 @@
 #include "wrapper.hpp"
 #include "Dynamixel.hpp"
 
-#define DYNAMIXEL_ID 3
+#define DYNAMIXEL_ID 1
 
 UART_HandleTypeDef huart5;
 
@@ -32,8 +32,10 @@ void cppInit(void){
 void cppLoop(void){
 	static float angle;
 
+	angle += 0.1;
 	mx64.setGoalPosition(DYNAMIXEL_ID, angle);
 
+	HAL_Delay(100);
 }
 
 void cppFlip1ms(void){
