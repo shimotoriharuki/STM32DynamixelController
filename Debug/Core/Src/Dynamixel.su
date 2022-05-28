@@ -1,0 +1,19 @@
+Dynamixel.cpp:17:9:uint8_t Dynamixel::writeData_(uint8_t, uint8_t, uint8_t*)	56	dynamic
+Dynamixel.cpp:45:9:uint8_t Dynamixel::readData_(uint8_t, uint8_t, uint8_t, uint8_t*, uint8_t*)	56	dynamic
+Dynamixel.cpp:79:6:void Dynamixel::setPacket(uint8_t, uint8_t, uint8_t, uint8_t*, uint8_t, uint8_t*)	48	dynamic
+Dynamixel.cpp:109:6:void Dynamixel::communicationStart()	16	static
+Dynamixel.cpp:114:10:uint16_t Dynamixel::getCheckSum_(uint8_t*)	24	static
+Dynamixel.cpp:125:1:Dynamixel::Dynamixel(UART_HandleTypeDef*, GPIO_TypeDef*, uint16_t)	24	static
+Dynamixel.cpp:127:6:void Dynamixel::LED(uint8_t, uint8_t)	40	static
+Dynamixel.cpp:139:9:uint8_t Dynamixel::ping(uint8_t)	32	static
+Dynamixel.cpp:161:6:void Dynamixel::getLEDError(uint8_t*)	16	static
+Dynamixel.cpp:166:6:void Dynamixel::torque(uint8_t, uint8_t)	40	static
+Dynamixel.cpp:177:6:void Dynamixel::getTorqueError(uint8_t*)	16	static
+Dynamixel.cpp:182:6:void Dynamixel::setGoalPosition(uint8_t, float)	64	static
+Dynamixel.cpp:197:6:void Dynamixel::getGoalPositionError(uint8_t*)	16	static
+Dynamixel.cpp:202:6:void Dynamixel::setOperatingMode(uint8_t, uint8_t)	40	static
+Dynamixel.cpp:213:6:void Dynamixel::getOperatingModeError(uint8_t*)	16	static
+Dynamixel.cpp:219:6:void Dynamixel::requestTemperature(uint8_t)	40	static
+Dynamixel.cpp:232:9:uint8_t Dynamixel::getTemperature(uint8_t*)	24	static
+Dynamixel.cpp:243:6:void Dynamixel::requestInputVoltage(uint8_t)	40	static
+Dynamixel.cpp:256:7:float Dynamixel::getInputVoltage(uint8_t*)	16	static

@@ -1,0 +1,5 @@
+wrapper.cpp:21:6:void cppInit()	8	static
+wrapper.cpp:32:6:void cppLoop()	8	static
+wrapper.cpp:39:6:void cppFlip1ms()	4	static
+wrapper.cpp:46:1:void __static_initialization_and_destruction_0(int, int)	16	static
+wrapper.cpp:46:1:cpp)	8	static
