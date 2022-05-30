@@ -149,7 +149,6 @@ uint8_t Dynamixel::ping(uint8_t id)
 
 	rs485_.send(send_buf, 6);
 
-
 	/* ---Read status packet--- */
 	uint8_t read_buf[6];
 	rs485_.read(read_buf, 6);
