@@ -124,17 +124,6 @@ uint16_t Dynamixel::getCheckSum_(uint8_t *buf)
 /* -----public------*/
 Dynamixel::Dynamixel(UART_HandleTypeDef *huart_num, GPIO_TypeDef *gpio_type, uint16_t gpio_num) : rs485_(huart_num, gpio_type, gpio_num){}
 
-void Dynamixel::LED(uint8_t id, uint8_t status)
-{
-	uint8_t write_param[2];
-	write_param[0] = ADDRESS_LED;
-	write_param[1] = status;
-
-	setPacket(id, INSTRUCTION_WRITE, 2, write_param, 0, status_packet_led_);
-
-	if(rs485_.isCommunicating() == false) communicationStart();
-}
-
 /* ping */
 uint8_t Dynamixel::ping(uint8_t id)
 {
@@ -157,6 +146,17 @@ uint8_t Dynamixel::ping(uint8_t id)
 }
 
 /* write */
+void Dynamixel::LED(uint8_t id, uint8_t status)
+{
+	uint8_t write_param[2];
+	write_param[0] = ADDRESS_LED;
+	write_param[1] = status;
+
+	setPacket(id, INSTRUCTION_WRITE, 2, write_param, 0, status_packet_led_);
+
+	if(rs485_.isCommunicating() == false) communicationStart();
+}
+
 void Dynamixel::getLEDError(uint8_t *error)
 {
 	*error = status_packet_led_[4];

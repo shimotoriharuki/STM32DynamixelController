@@ -13449,115 +13449,116 @@ Dynamixel::Dynamixel(UART_HandleTypeDef *huart_num, GPIO_TypeDef *gpio_type, uin
  800665e:	46bd      	mov	sp, r7
  8006660:	bd80      	pop	{r7, pc}
 
-08006662 <_ZN9Dynamixel3LEDEhh>:
-
-void Dynamixel::LED(uint8_t id, uint8_t status)
-{
- 8006662:	b580      	push	{r7, lr}
- 8006664:	b088      	sub	sp, #32
- 8006666:	af04      	add	r7, sp, #16
- 8006668:	6078      	str	r0, [r7, #4]
- 800666a:	460b      	mov	r3, r1
- 800666c:	70fb      	strb	r3, [r7, #3]
- 800666e:	4613      	mov	r3, r2
- 8006670:	70bb      	strb	r3, [r7, #2]
-	uint8_t write_param[2];
-	write_param[0] = ADDRESS_LED;
- 8006672:	2341      	movs	r3, #65	; 0x41
- 8006674:	733b      	strb	r3, [r7, #12]
-	write_param[1] = status;
- 8006676:	78bb      	ldrb	r3, [r7, #2]
- 8006678:	737b      	strb	r3, [r7, #13]
-
-	setPacket(id, INSTRUCTION_WRITE, 2, write_param, 0, status_packet_led_);
- 800667a:	687b      	ldr	r3, [r7, #4]
- 800667c:	3319      	adds	r3, #25
- 800667e:	78f9      	ldrb	r1, [r7, #3]
- 8006680:	9302      	str	r3, [sp, #8]
- 8006682:	2300      	movs	r3, #0
- 8006684:	9301      	str	r3, [sp, #4]
- 8006686:	f107 030c 	add.w	r3, r7, #12
- 800668a:	9300      	str	r3, [sp, #0]
- 800668c:	2302      	movs	r3, #2
- 800668e:	2203      	movs	r2, #3
- 8006690:	6878      	ldr	r0, [r7, #4]
- 8006692:	f7ff ff13 	bl	80064bc <_ZN9Dynamixel9setPacketEhhhPhhS0_>
-
-	if(rs485_.isCommunicating() == false) communicationStart();
- 8006696:	687b      	ldr	r3, [r7, #4]
- 8006698:	4618      	mov	r0, r3
- 800669a:	f000 fb55 	bl	8006d48 <_ZN9HAL_RS48515isCommunicatingEv>
- 800669e:	4603      	mov	r3, r0
- 80066a0:	f083 0301 	eor.w	r3, r3, #1
- 80066a4:	b2db      	uxtb	r3, r3
- 80066a6:	2b00      	cmp	r3, #0
- 80066a8:	d002      	beq.n	80066b0 <_ZN9Dynamixel3LEDEhh+0x4e>
- 80066aa:	6878      	ldr	r0, [r7, #4]
- 80066ac:	f7ff ff95 	bl	80065da <_ZN9Dynamixel18communicationStartEv>
-}
- 80066b0:	bf00      	nop
- 80066b2:	3710      	adds	r7, #16
- 80066b4:	46bd      	mov	sp, r7
- 80066b6:	bd80      	pop	{r7, pc}
-
-080066b8 <_ZN9Dynamixel4pingEh>:
+08006662 <_ZN9Dynamixel4pingEh>:
 
 /* ping */
 uint8_t Dynamixel::ping(uint8_t id)
 {
- 80066b8:	b580      	push	{r7, lr}
- 80066ba:	b086      	sub	sp, #24
- 80066bc:	af00      	add	r7, sp, #0
- 80066be:	6078      	str	r0, [r7, #4]
- 80066c0:	460b      	mov	r3, r1
- 80066c2:	70fb      	strb	r3, [r7, #3]
+ 8006662:	b580      	push	{r7, lr}
+ 8006664:	b086      	sub	sp, #24
+ 8006666:	af00      	add	r7, sp, #0
+ 8006668:	6078      	str	r0, [r7, #4]
+ 800666a:	460b      	mov	r3, r1
+ 800666c:	70fb      	strb	r3, [r7, #3]
 	/* ---Send Instruction packet--- */
 	uint8_t send_buf[6];
 	send_buf[0] = 0xff;
- 80066c4:	23ff      	movs	r3, #255	; 0xff
- 80066c6:	743b      	strb	r3, [r7, #16]
+ 800666e:	23ff      	movs	r3, #255	; 0xff
+ 8006670:	743b      	strb	r3, [r7, #16]
 	send_buf[1] = 0xff;
- 80066c8:	23ff      	movs	r3, #255	; 0xff
- 80066ca:	747b      	strb	r3, [r7, #17]
+ 8006672:	23ff      	movs	r3, #255	; 0xff
+ 8006674:	747b      	strb	r3, [r7, #17]
 	send_buf[2] = id;
- 80066cc:	78fb      	ldrb	r3, [r7, #3]
- 80066ce:	74bb      	strb	r3, [r7, #18]
+ 8006676:	78fb      	ldrb	r3, [r7, #3]
+ 8006678:	74bb      	strb	r3, [r7, #18]
 	send_buf[3] = 2; //(Instruction + Checksum)
- 80066d0:	2302      	movs	r3, #2
- 80066d2:	74fb      	strb	r3, [r7, #19]
+ 800667a:	2302      	movs	r3, #2
+ 800667c:	74fb      	strb	r3, [r7, #19]
 	send_buf[4] = INSTRUCTION_PING;
- 80066d4:	2301      	movs	r3, #1
- 80066d6:	753b      	strb	r3, [r7, #20]
+ 800667e:	2301      	movs	r3, #1
+ 8006680:	753b      	strb	r3, [r7, #20]
 	send_buf[5] = getCheckSum_(send_buf);
- 80066d8:	f107 0310 	add.w	r3, r7, #16
- 80066dc:	4619      	mov	r1, r3
- 80066de:	6878      	ldr	r0, [r7, #4]
- 80066e0:	f7ff ff87 	bl	80065f2 <_ZN9Dynamixel12getCheckSum_EPh>
- 80066e4:	4603      	mov	r3, r0
- 80066e6:	b2db      	uxtb	r3, r3
- 80066e8:	757b      	strb	r3, [r7, #21]
+ 8006682:	f107 0310 	add.w	r3, r7, #16
+ 8006686:	4619      	mov	r1, r3
+ 8006688:	6878      	ldr	r0, [r7, #4]
+ 800668a:	f7ff ffb2 	bl	80065f2 <_ZN9Dynamixel12getCheckSum_EPh>
+ 800668e:	4603      	mov	r3, r0
+ 8006690:	b2db      	uxtb	r3, r3
+ 8006692:	757b      	strb	r3, [r7, #21]
 
 	rs485_.send(send_buf, 6);
- 80066ea:	687b      	ldr	r3, [r7, #4]
- 80066ec:	f107 0110 	add.w	r1, r7, #16
- 80066f0:	2206      	movs	r2, #6
- 80066f2:	4618      	mov	r0, r3
- 80066f4:	f000 fa64 	bl	8006bc0 <_ZN9HAL_RS4854sendEPhh>
+ 8006694:	687b      	ldr	r3, [r7, #4]
+ 8006696:	f107 0110 	add.w	r1, r7, #16
+ 800669a:	2206      	movs	r2, #6
+ 800669c:	4618      	mov	r0, r3
+ 800669e:	f000 fa8f 	bl	8006bc0 <_ZN9HAL_RS4854sendEPhh>
 
 	/* ---Read status packet--- */
 	uint8_t read_buf[6];
 	rs485_.read(read_buf, 6);
- 80066f8:	687b      	ldr	r3, [r7, #4]
- 80066fa:	f107 0108 	add.w	r1, r7, #8
- 80066fe:	2206      	movs	r2, #6
- 8006700:	4618      	mov	r0, r3
- 8006702:	f000 fa8b 	bl	8006c1c <_ZN9HAL_RS4854readEPhh>
+ 80066a2:	687b      	ldr	r3, [r7, #4]
+ 80066a4:	f107 0108 	add.w	r1, r7, #8
+ 80066a8:	2206      	movs	r2, #6
+ 80066aa:	4618      	mov	r0, r3
+ 80066ac:	f000 fab6 	bl	8006c1c <_ZN9HAL_RS4854readEPhh>
 
 	return read_buf[4]; //return Error status
- 8006706:	7b3b      	ldrb	r3, [r7, #12]
+ 80066b0:	7b3b      	ldrb	r3, [r7, #12]
 }
- 8006708:	4618      	mov	r0, r3
- 800670a:	3718      	adds	r7, #24
+ 80066b2:	4618      	mov	r0, r3
+ 80066b4:	3718      	adds	r7, #24
+ 80066b6:	46bd      	mov	sp, r7
+ 80066b8:	bd80      	pop	{r7, pc}
+
+080066ba <_ZN9Dynamixel3LEDEhh>:
+
+/* write */
+void Dynamixel::LED(uint8_t id, uint8_t status)
+{
+ 80066ba:	b580      	push	{r7, lr}
+ 80066bc:	b088      	sub	sp, #32
+ 80066be:	af04      	add	r7, sp, #16
+ 80066c0:	6078      	str	r0, [r7, #4]
+ 80066c2:	460b      	mov	r3, r1
+ 80066c4:	70fb      	strb	r3, [r7, #3]
+ 80066c6:	4613      	mov	r3, r2
+ 80066c8:	70bb      	strb	r3, [r7, #2]
+	uint8_t write_param[2];
+	write_param[0] = ADDRESS_LED;
+ 80066ca:	2341      	movs	r3, #65	; 0x41
+ 80066cc:	733b      	strb	r3, [r7, #12]
+	write_param[1] = status;
+ 80066ce:	78bb      	ldrb	r3, [r7, #2]
+ 80066d0:	737b      	strb	r3, [r7, #13]
+
+	setPacket(id, INSTRUCTION_WRITE, 2, write_param, 0, status_packet_led_);
+ 80066d2:	687b      	ldr	r3, [r7, #4]
+ 80066d4:	3319      	adds	r3, #25
+ 80066d6:	78f9      	ldrb	r1, [r7, #3]
+ 80066d8:	9302      	str	r3, [sp, #8]
+ 80066da:	2300      	movs	r3, #0
+ 80066dc:	9301      	str	r3, [sp, #4]
+ 80066de:	f107 030c 	add.w	r3, r7, #12
+ 80066e2:	9300      	str	r3, [sp, #0]
+ 80066e4:	2302      	movs	r3, #2
+ 80066e6:	2203      	movs	r2, #3
+ 80066e8:	6878      	ldr	r0, [r7, #4]
+ 80066ea:	f7ff fee7 	bl	80064bc <_ZN9Dynamixel9setPacketEhhhPhhS0_>
+
+	if(rs485_.isCommunicating() == false) communicationStart();
+ 80066ee:	687b      	ldr	r3, [r7, #4]
+ 80066f0:	4618      	mov	r0, r3
+ 80066f2:	f000 fb29 	bl	8006d48 <_ZN9HAL_RS48515isCommunicatingEv>
+ 80066f6:	4603      	mov	r3, r0
+ 80066f8:	f083 0301 	eor.w	r3, r3, #1
+ 80066fc:	b2db      	uxtb	r3, r3
+ 80066fe:	2b00      	cmp	r3, #0
+ 8006700:	d002      	beq.n	8006708 <_ZN9Dynamixel3LEDEhh+0x4e>
+ 8006702:	6878      	ldr	r0, [r7, #4]
+ 8006704:	f7ff ff69 	bl	80065da <_ZN9Dynamixel18communicationStartEv>
+}
+ 8006708:	bf00      	nop
+ 800670a:	3710      	adds	r7, #16
  800670c:	46bd      	mov	sp, r7
  800670e:	bd80      	pop	{r7, pc}
 
@@ -14956,7 +14957,7 @@ void cppInit(void){
 	uint8_t check_ping = mx64.ping(DYNAMIXEL_ID); //Confirm communication with Dynamixel
  80070aa:	2101      	movs	r1, #1
  80070ac:	480f      	ldr	r0, [pc, #60]	; (80070ec <cppInit+0x48>)
- 80070ae:	f7ff fb03 	bl	80066b8 <_ZN9Dynamixel4pingEh>
+ 80070ae:	f7ff fad8 	bl	8006662 <_ZN9Dynamixel4pingEh>
  80070b2:	4603      	mov	r3, r0
  80070b4:	71fb      	strb	r3, [r7, #7]
 	printf("Ping: %d\r\n", check_ping); //OK if check_ping is 0
@@ -14964,7 +14965,6 @@ void cppInit(void){
  80070b8:	4619      	mov	r1, r3
  80070ba:	480d      	ldr	r0, [pc, #52]	; (80070f0 <cppInit+0x4c>)
  80070bc:	f003 fa3a 	bl	800a534 <iprintf>
-
 
 	mx64.setOperatingMode(DYNAMIXEL_ID, 3); //Set operating mode
  80070c0:	2203      	movs	r2, #3
@@ -15057,7 +15057,7 @@ void cppLoop(void){
  8007172:	2201      	movs	r2, #1
  8007174:	2101      	movs	r1, #1
  8007176:	480c      	ldr	r0, [pc, #48]	; (80071a8 <cppLoop+0xb4>)
- 8007178:	f7ff fa73 	bl	8006662 <_ZN9Dynamixel3LEDEhh>
+ 8007178:	f7ff fa9f 	bl	80066ba <_ZN9Dynamixel3LEDEhh>
 	HAL_Delay(500);
  800717c:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
  8007180:	f000 fbc6 	bl	8007910 <HAL_Delay>
@@ -15065,7 +15065,7 @@ void cppLoop(void){
  8007184:	2200      	movs	r2, #0
  8007186:	2101      	movs	r1, #1
  8007188:	4807      	ldr	r0, [pc, #28]	; (80071a8 <cppLoop+0xb4>)
- 800718a:	f7ff fa6a 	bl	8006662 <_ZN9Dynamixel3LEDEhh>
+ 800718a:	f7ff fa96 	bl	80066ba <_ZN9Dynamixel3LEDEhh>
 	HAL_Delay(500);
  800718e:	f44f 70fa 	mov.w	r0, #500	; 0x1f4
  8007192:	f000 fbbd 	bl	8007910 <HAL_Delay>

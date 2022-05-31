@@ -54,7 +54,7 @@ public:
 	/* Ping */
 	uint8_t ping(uint8_t);
 
-	/* write */
+	/* Write */
 	void LED(uint8_t, uint8_t);
 	void getLEDError(uint8_t *error);
 
@@ -67,7 +67,7 @@ public:
 	void setOperatingMode(uint8_t, uint8_t);
 	void getOperatingModeError(uint8_t *error);
 
-	/* read */
+	/* Read */
 	void requestTemperature(uint8_t);
 	uint8_t getTemperature(uint8_t *error = 0);
 

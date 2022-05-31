@@ -5066,12 +5066,12 @@ LOAD c:/st/stm32cubeide_1.5.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x000000000800663e       0x24 Core/Src/Dynamixel.o
                 0x000000000800663e                Dynamixel::Dynamixel(__UART_HandleTypeDef*, GPIO_TypeDef*, unsigned short)
                 0x000000000800663e                Dynamixel::Dynamixel(__UART_HandleTypeDef*, GPIO_TypeDef*, unsigned short)
- .text._ZN9Dynamixel3LEDEhh
-                0x0000000008006662       0x56 Core/Src/Dynamixel.o
-                0x0000000008006662                Dynamixel::LED(unsigned char, unsigned char)
  .text._ZN9Dynamixel4pingEh
-                0x00000000080066b8       0x58 Core/Src/Dynamixel.o
-                0x00000000080066b8                Dynamixel::ping(unsigned char)
+                0x0000000008006662       0x58 Core/Src/Dynamixel.o
+                0x0000000008006662                Dynamixel::ping(unsigned char)
+ .text._ZN9Dynamixel3LEDEhh
+                0x00000000080066ba       0x56 Core/Src/Dynamixel.o
+                0x00000000080066ba                Dynamixel::LED(unsigned char, unsigned char)
  .text._ZN9Dynamixel6torqueEhh
                 0x0000000008006710       0x56 Core/Src/Dynamixel.o
                 0x0000000008006710                Dynamixel::torque(unsigned char, unsigned char)
