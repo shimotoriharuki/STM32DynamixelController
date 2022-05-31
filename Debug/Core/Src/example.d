@@ -1,4 +1,4 @@
-Core/Src/wrapper.o: ../Core/Src/wrapper.cpp ../Core/Inc/wrapper.hpp \
+Core/Src/example.o: ../Core/Src/example.cpp ../Core/Inc/example.hpp \
  ../Core/Inc/Dynamixel.hpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -28,7 +28,7 @@ Core/Src/wrapper.o: ../Core/Src/wrapper.cpp ../Core/Inc/wrapper.hpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/HAL_RS485.hpp ../Core/Inc/BufData.hpp
 
-../Core/Inc/wrapper.hpp:
+../Core/Inc/example.hpp:
 
 ../Core/Inc/Dynamixel.hpp:
 

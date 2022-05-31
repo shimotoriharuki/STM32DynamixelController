@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "wrapper.hpp" //<- Edit
+#include "example.hpp" //<- Edit
 
 /* USER CODE END Includes */
 
@@ -41,7 +41,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-UART_HandleTypeDef huart5; //<- Edit
+UART_HandleTypeDef huart5;
 
 /* USER CODE BEGIN PV */
 

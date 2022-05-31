@@ -1,12 +1,12 @@
 /*
- * wrapper.hpp
+ * example.hpp
  *
  *  Created on: Oct 16, 2021
  *      Author: under
  */
 
-#ifndef INC_WRAPPER_HPP_
-#define INC_WRAPPER_HPP_
+#ifndef INC_EXAMPLE_HPP_
+#define INC_EXAMPLE_HPP_
 
 #ifdef __cplusplus
 extern "C" {
@@ -19,4 +19,4 @@ void cppLoop(void);
 };
 #endif
 
-#endif /* INC_WRAPPER_HPP_ */
+#endif /* INC_EXAMPLE_HPP_ */
