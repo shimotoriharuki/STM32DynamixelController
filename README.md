@@ -61,5 +61,59 @@ The float formatting support is not enabled, check your MCU Settings from "Proje
 
 # Member Functions
 
-## 
+## `uint8_t ping(uint8_t id)`
 
+Confirm the Dynamixel's status. When the return value is 0, it is working normally.
+When this function is called, the program waits for the communication to finish.
+
+## `void LED(uint8_t id, uint8_t status)`
+
+Toggle LED status.
+
+|Status value| LED status|
+|-|-|
+|0|OFF|
+|1|ON |
+
+## `void getLEDerror(uint8_t *error)`
+
+## `void torque(uint8_t id, uint8_t status)`
+
+Enable/Disable torque.
+
+|Status value| Torque status|
+|-|-|
+|0|Disable|
+|1|Enable|
+
+## `void getTorqueError(uint8_t *error)`
+
+## `void setGoalPosition(uint8_t id, float position)`
+
+Set Dynamixel angle position. 
+
+Range：0 - 4095
+
+## `void getGoalPositionError(uint8_t *error)`
+
+## `void setOperatingMode(uint8_t id, uint8_t mode)`
+
+Change [Operating Mode](https://emanual.robotis.com/docs/en/dxl/mx/mx-64-2/#operating-mode)
+
+## `void getOperatingModeError(uint8_t *error)`
+
+## `void requestTemperature(uint8_t id)`
+
+Request the acquisition of temperature information.
+
+## `uint8_t getTemperature(uint8_t *error)`
+
+After requesting the acquisition of temperature information, the information will be updated when the reception is completed.
+
+## `void requestInputVoltage(uint8_t id)`
+
+Request the acquisition of input voltage information.
+
+## `float getInputVoltage(uint8_t *error)`
+
+After requesting the acquisition of input voltage information, the information will be updated when the reception is completed.
