@@ -1,6 +1,6 @@
 # STM32DynamixelController
 
-You can use STM32 to communicate with Dynamixel.
+You can use STM32 to communicate with Dynamixel. See example for a detailed usage [example.cpp](https://github.com/shimotoriharuki/STM32DynamixelController/blob/master/Core/Src/example.cpp).
 
 # Prerequisites
 
