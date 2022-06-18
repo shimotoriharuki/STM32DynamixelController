@@ -15,6 +15,10 @@ This code communicates with Dynamixel using [DYNAMIXEL Communiation Protocol 1.0
   
 # How to use
 
+## Enable UART interrupt in
+
+Enable UART interrupts in your .ioc file.
+
 ## Add cpp and hpp files to your project
 
 Add the following files in `Core/Src`  and `Core/Inc` of this repository to the same location in your project.
