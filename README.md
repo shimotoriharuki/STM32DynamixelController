@@ -121,3 +121,8 @@ Request the acquisition of input voltage information.
 ## `float getInputVoltage(uint8_t *error)`
 
 After requesting the acquisition of input voltage information, the information will be updated when the reception is completed.
+
+# License
+Copyright 2022 SHIMOTORI, Haruki
+
+This repository is released under the BSD 3-Clause "New" or "Revised" License, see [LICENSE](https://github.com/shimotoriharuki/STM32DynamixelController/blob/master/LICENSE).
